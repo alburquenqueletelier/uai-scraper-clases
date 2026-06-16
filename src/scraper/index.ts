@@ -38,7 +38,10 @@ export async function getSessions(): Promise<Session[]> {
 async function downloadExcel(): Promise<void> {
   await mkdir(DATA_DIR, { recursive: true });
   const beforeMs = Date.now();
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   try {
     const page = await browser.newPage();
     const client = await page.createCDPSession();

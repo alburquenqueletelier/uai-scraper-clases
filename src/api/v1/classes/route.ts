@@ -64,7 +64,8 @@ classesRouter.openapi(postRoute, async (c) => {
   try {
     const clases = await getSessions();
     return c.json({ ok: true as const, total: clases.length }, 200);
-  } catch {
+  } catch (err) {
+    console.error("[scraper] Error:", err);
     return c.json({ error: "Fallo interno al ejecutar el scraper." }, 500);
   }
 });

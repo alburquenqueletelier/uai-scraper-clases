@@ -2,7 +2,7 @@ import { readdir } from "node:fs/promises";
 import path from "node:path";
 import type { Session } from "../../scraper/index.ts";
 
-const DATA_DIR = path.resolve(import.meta.dir, "../../../..", "data");
+const DATA_DIR = path.resolve(import.meta.dir, "../../..", "data");
 
 export interface ClasesFilter {
   hora?: string;
